@@ -1,19 +1,15 @@
 // arrays , objetos
  let meta = {
     value: 'ler um livro por mes',
-    checked: false,
-    ischecked: (info) => {
-        console.log(info)
-    }
+    checked: true,
  }
 
- 
- meta.ischecked(meta.value)
-
-//  function Arrow Function
-
-const criarMeta = () => {}
-
-function criarMeta(){
-    
+ let metas = [
+    meta,
+    {
+    value: 'caminhar 20 minutos',
+    checked: false
 }
+]
+
+ console.log(metas[1].value)
