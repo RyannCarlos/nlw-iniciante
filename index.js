@@ -36,6 +36,11 @@ const cadastrarMeta = async () => {
 }
 
 const listarMetas = async () => {
+    if(metas.length == 0) {
+        mensagem = "Não existem metas"
+        return
+    }
+
     const respostas = await checkbox({
         message: "Use as setas para mudar de meta, o espaço para marcar ou desmcarcar e o Enter para finalizar essa etapa",
         choices: [...metas],
@@ -61,6 +66,11 @@ const listarMetas = async () => {
 }
 
 const MetasRealizadas = async () => {
+    if(metas.length == 0) {
+        mensagem = "Não existem metas"
+        return
+    }
+
     const realizadas = metas.filter((meta) => {
         return meta.checked
     })
@@ -77,6 +87,11 @@ const MetasRealizadas = async () => {
 }
 
 const MetasAbertas = async () => {
+    if(metas.length == 0) {
+        mensagem = "Não existem metas"
+        return
+    }
+
     const abertas = metas.filter((metas) =>{
         return metas.checked != true
     })
@@ -93,7 +108,12 @@ const MetasAbertas = async () => {
 }
 
 const DeletarMetas = async () => {
-    const  metasDesmercadas = metas.map((meta) => {
+    if(metas.length == 0) {
+        mensagem = "Não existem metas"
+        return
+    }
+
+    const metasDesmercadas = metas.map((meta) => {
         return { value: meta.value, checked: false }
     }) 
 
